@@ -59,52 +59,16 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
-    <Node ToolID="57">
-      <GuiSettings Plugin="PortfolioPluginsGui.Geocoder.Geocoder">
-        <Position x="1448" y="500" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <InputFields>
-            <SelectedGeocoder />
-          </InputFields>
-          <OutputFields />
-          <MultipleMatchMode value="0" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxGeocoder" />
-    </Node>
-    <Node ToolID="58">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1544" y="500" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_5d49295bb8c84b369769d05a05dccfe1_.yxdb</TempFile>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
     <Node ToolID="52">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="1771" y="307" width="168" height="165" />
+        <Position x="1577" y="305" width="168" height="24" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Caption>Write Data Files</Caption>
           <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
-          <Disabled value="False" />
-          <Folded value="False" />
+          <Disabled value="True" />
+          <Folded value="True" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -115,7 +79,7 @@
       <ChildNodes>
         <Node ToolID="7">
           <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-            <Position x="1796" y="356" />
+            <Position x="1602" y="354" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1209,10 +1173,6 @@ OR
     <Connection>
       <Origin ToolID="53" Connection="Join" />
       <Destination ToolID="7" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="57" Connection="Output" />
-      <Destination ToolID="58" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="2" Connection="Output" />
