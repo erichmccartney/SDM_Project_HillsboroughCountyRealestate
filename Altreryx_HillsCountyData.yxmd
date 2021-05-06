@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="53">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1328" y="356" />
+        <Position x="1386" y="354" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -33,11 +33,11 @@
     </Node>
     <Node ToolID="56">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1424" y="272" />
+        <Position x="1470" y="270" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_246def66a00846e7ae35f39605cff62b_.yxdb</TempFile>
+          <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_99f177fafe804d1fb6d5642143ae3bc3_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -97,7 +97,11 @@
     </Node>
     <Node ToolID="52">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+<<<<<<< Updated upstream
         <Position x="1771" y="307" width="168" height="165" />
+=======
+        <Position x="1577" y="305" width="168" height="165" />
+>>>>>>> Stashed changes
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -143,7 +147,7 @@
     </Node>
     <Node ToolID="30">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="54" y="54" width="1226" height="324" />
+        <Position x="53" y="55" width="1308" height="324" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -161,7 +165,7 @@
       <ChildNodes>
         <Node ToolID="2">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Directory.Directory">
-            <Position x="79" y="188" />
+            <Position x="78" y="188" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -179,7 +183,7 @@
         </Node>
         <Node ToolID="3">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
-            <Position x="488" y="187" />
+            <Position x="488" y="188" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -260,7 +264,7 @@
                 <Field name="JustValue" source="File: C:\Users\erich\Documents\GitHub\SDM_Project_HillsboroughCountyRealestate\InputData\REAL ESTATE DATA\_export_0032176383494a318d6d92dcb8dab9c5.csv" type="Int32" />
                 <Field name="AssessedValue" source="File: C:\Users\erich\Documents\GitHub\SDM_Project_HillsboroughCountyRealestate\InputData\REAL ESTATE DATA\_export_0032176383494a318d6d92dcb8dab9c5.csv" type="Int32" />
                 <Field name="TaxableValue" source="File: C:\Users\erich\Documents\GitHub\SDM_Project_HillsboroughCountyRealestate\InputData\REAL ESTATE DATA\_export_0032176383494a318d6d92dcb8dab9c5.csv" type="Int32" />
-                <Field name="LastSaleDate" size="10" source="File: C:\Users\erich\Documents\GitHub\SDM_Project_HillsboroughCountyRealestate\InputData\REAL ESTATE DATA\_export_0032176383494a318d6d92dcb8dab9c5.csv" type="String" />
+                <Field name="LastSaleDate" source="File: C:\Users\erich\Documents\GitHub\SDM_Project_HillsboroughCountyRealestate\InputData\REAL ESTATE DATA\_export_0032176383494a318d6d92dcb8dab9c5.csv" type="Date" />
                 <Field name="LastSalePrice" source="File: C:\Users\erich\Documents\GitHub\SDM_Project_HillsboroughCountyRealestate\InputData\REAL ESTATE DATA\_export_0032176383494a318d6d92dcb8dab9c5.csv" type="Int32" />
                 <Field name="VacantImproved" size="8" source="File: C:\Users\erich\Documents\GitHub\SDM_Project_HillsboroughCountyRealestate\InputData\REAL ESTATE DATA\_export_0032176383494a318d6d92dcb8dab9c5.csv" type="String" />
                 <Field name="Qualified" size="11" source="File: C:\Users\erich\Documents\GitHub\SDM_Project_HillsboroughCountyRealestate\InputData\REAL ESTATE DATA\_export_0032176383494a318d6d92dcb8dab9c5.csv" type="String" />
@@ -271,7 +275,7 @@
         </Node>
         <Node ToolID="5">
           <GuiSettings>
-            <Position x="775" y="187" />
+            <Position x="775" y="188" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -303,7 +307,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_5a776ae06523427c8035ee609d862f9e_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_67e94ef5eaf74213b1c6577a869fab8f_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -327,7 +331,7 @@
         </Node>
         <Node ToolID="8">
           <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicInput.DynamicInput">
-            <Position x="176" y="187" />
+            <Position x="175" y="188" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -363,7 +367,7 @@
         </Node>
         <Node ToolID="9">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="967" y="187" />
+            <Position x="967" y="188" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -388,7 +392,7 @@ OR
         </Node>
         <Node ToolID="10">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
-            <Position x="284" y="187" />
+            <Position x="284" y="188" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -410,7 +414,7 @@ OR
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_6674e4035ff7483a81afc5c54c3e6b59_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_dc36d9279f394757a32577c493c9d4d1_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -434,11 +438,11 @@ OR
         </Node>
         <Node ToolID="12">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="488" y="103" />
+            <Position x="488" y="104" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_ccd81041b7674555bf9cbd05c5861f23_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_d3cf1cea433c47049c11463c23e842aa_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -462,7 +466,7 @@ OR
         </Node>
         <Node ToolID="13">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="392" y="187" />
+            <Position x="392" y="188" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -481,16 +485,16 @@ OR
                 <SelectField field="TotalStories" selected="True" type="Double" size="8" />
                 <SelectField field="TotalBedrooms" selected="True" type="Double" size="8" />
                 <SelectField field="TotalBathrooms" selected="True" type="Double" size="8" />
-                <SelectField field="YearBuilt" selected="True" />
-                <SelectField field="TotalLandValue" selected="True" type="Int32" size="4" />
-                <SelectField field="TotalBuildingValue" selected="True" type="Int32" size="4" />
-                <SelectField field="TotalExtraFeaturesValue" selected="True" type="Int32" size="4" />
-                <SelectField field="TotalHeatedAreaSqFt" selected="True" type="Int32" size="4" />
+                <SelectField field="YearBuilt" selected="True" type="Double" size="8" />
+                <SelectField field="TotalLandValue" selected="True" type="Double" size="8" />
+                <SelectField field="TotalBuildingValue" selected="True" type="Double" size="8" />
+                <SelectField field="TotalExtraFeaturesValue" selected="True" type="Double" size="8" />
+                <SelectField field="TotalHeatedAreaSqFt" selected="True" type="Double" size="8" />
                 <SelectField field="TotalGrossAreaSqFt" selected="False" type="Int32" size="4" />
                 <SelectField field="JustValue" selected="True" type="Int32" size="4" />
                 <SelectField field="AssessedValue" selected="True" type="Int32" size="4" />
                 <SelectField field="TaxableValue" selected="True" type="Int32" size="4" />
-                <SelectField field="LastSaleDate" selected="True" />
+                <SelectField field="LastSaleDate" selected="True" type="Date" size="10" />
                 <SelectField field="LastSalePrice" selected="True" type="Int32" size="4" />
                 <SelectField field="VacantImproved" selected="True" />
                 <SelectField field="Qualified" selected="True" />
@@ -507,11 +511,11 @@ OR
         </Node>
         <Node ToolID="14">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="284" y="103" />
+            <Position x="284" y="104" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_a210258de3b34435842028ca900438a2_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_1acad5e9d2994b51b5cecbe75b5bffbf_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -535,7 +539,7 @@ OR
         </Node>
         <Node ToolID="15">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="1064" y="188" />
+            <Position x="1062" y="188" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -554,11 +558,11 @@ OR
         </Node>
         <Node ToolID="21">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="967" y="116" />
+            <Position x="967" y="104" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_4d8fc63a29914dc4b486f58296db91fa_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_e7740e215a66487e87c25c45359e4391_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -582,7 +586,7 @@ OR
         </Node>
         <Node ToolID="22">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="872" y="187" />
+            <Position x="872" y="188" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -636,7 +640,7 @@ OR
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_8894126c4bc1497294ce88907d8c0161_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_2efa53b7d4ee4360997f4957af27ac9d_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -675,10 +679,10 @@ OR
                   <PeriodType>
                   </PeriodType>
                   <PeriodCount>0</PeriodCount>
-                  <StartDate>2021-05-02 10:06:56</StartDate>
-                  <EndDate>2021-05-02 10:06:56</EndDate>
                   <Operand>
                   </Operand>
+                  <StartDate>2021-05-02 10:06:56</StartDate>
+                  <EndDate>2021-05-02 10:06:56</EndDate>
                 </Operands>
               </Simple>
             </Configuration>
@@ -692,11 +696,58 @@ OR
         </Node>
         <Node ToolID="54">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="1196" y="104" />
+            <Position x="1146" y="104" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_fcc71fef83394a5dad90aeedc685fb2e_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_2c7af7a5cb224b998354d0fb3a3653eb_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="57">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1182" y="188" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="DateTimeDiff(datetimetoday(),[LastSaleDate], &quot;Days&quot;)/365" field="YearsSinceTurnover" size="8" type="Double" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[YearsSinceTurnover = DateTimeDiff(datetimetoday(),[LastSaleDate], "Days")/365
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="58">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1278" y="104" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_0aee893b533d485fbe654afa9a835b88_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -807,7 +858,7 @@ OR
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_86ec35537f1a4924963b8040bdb79d7b_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_5e309411c45d4de180e823850be2e83e_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -835,7 +886,7 @@ OR
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_cff8c80f298f4d1f9e2e93e3045e6174_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_1dc4a87d25d04c59955a036be5d259d8_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -882,7 +933,7 @@ OR
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_36396104cc8d441189de385ac2a2d4c1_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_18f05dc9539b4582a41f14ac811b2bca_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -977,7 +1028,7 @@ OR
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_6e00a5e9138a426aa463a1b8aef50463_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_0be8c24cdb8e4ad7b53654c0326335cd_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1024,7 +1075,7 @@ OR
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_a6a2fb934c784ec4b0ef273946195d9c_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_01d7a649c77542008deb870a4c655709_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1071,7 +1122,7 @@ OR
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_3e9031dbfd4a48d6abe65ad659e43540_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_b9523f52c450406bb6c6c04390836eeb_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1125,7 +1176,7 @@ OR
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_1d8cea87e6c449dfa074d02d5604fdc1_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_4edc6d847c43435ebdb7103a2e308eb1_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1176,7 +1227,7 @@ OR
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_39100_cbee49f936ef4e1fa24c800c4e1041fb_\Engine_26076_60d629db61e84651a0d0e45bb4e0e982_.yxdb</TempFile>
+              <TempFile>C:\Users\erich\AppData\Local\Temp\Engine_32212_bddaa2c462c14f57af4f697788e7a736_\Engine_13220_712a9fed5cff402b96b1112886432296_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1260,15 +1311,11 @@ OR
     </Connection>
     <Connection>
       <Origin ToolID="15" Connection="False" />
-      <Destination ToolID="53" Connection="Left" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="49" Connection="Output" />
-      <Destination ToolID="53" Connection="Right" />
+      <Destination ToolID="54" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="15" Connection="False" />
-      <Destination ToolID="54" Connection="Input" />
+      <Destination ToolID="57" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="22" Connection="True" />
@@ -1289,6 +1336,18 @@ OR
     <Connection>
       <Origin ToolID="26" Connection="True" />
       <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="53" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="53" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="58" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="27" Connection="Output" />
