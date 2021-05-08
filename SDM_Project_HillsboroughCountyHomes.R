@@ -22,7 +22,9 @@ ols <- lm(YearsSinceTurnover ~ Avg_GradePoint2019*LastSalePrice, data=df)
 summary(ols)
 
 #Fixed Effects Model 
-fe <- lm(YearsSinceTurnover ~ Avg_GradePoint2019*LastSalePrice + Avg_GradePoint2019*SchoolZipCodeGroup + as.factor(Neighborhood), data=df)
+fe <- lm(YearsSinceTurnover ~ Avg_GradePoint2019*LastSalePrice + 
+           Avg_GradePoint2019*SchoolZipCodeGroup + as.factor(Neighborhood), 
+         data=df)
 summary(fe)
 
 library(stargazer)
@@ -95,10 +97,11 @@ neighborhood_df = df %>%
 #4. Checking missing values
 summary(neighborhood_df)
 summary(df$TotalHeatedAreaSqFt)
-df$TotalHeatedAreaSqFt == 0)
+df$TotalHeatedAreaSqFt == 0
 
 
-# We discovered that 361 observations did not have values for TotalHeatedAreaSqFt and 1832 did not have values for Acreage and were dropped from the analysis
+# We discovered that 361 observations did not have values for TotalHeatedAreaSqFt 
+# and 1832 did not have values for Acreage and were dropped from the analysis
 # It represents 5.6823% of our dataset
 # It caused us to drop 2 neighborhoods 
 nrow(filter(df, Acreage == 0 | TotalHeatedAreaSqFt == 0))
@@ -146,7 +149,9 @@ cor = cor(neighborhood_df2[,c(-1)])
 cor
 corrplot(cor, method = "circle")
 
-# we found that the percentage of minority and economically disadvantage percentage are highly and negatively correlated to grade point, and so it will be dropped from our analysis to avoid multicollinearity
+# we found that the percentage of minority and economically disadvantage 
+# percentage are highly and negatively correlated to grade point, and so it will 
+#be dropped from our analysis to avoid multicollinearity
 colnames(neighborhood_df2)
 
 # 7. Statistical Analysis
