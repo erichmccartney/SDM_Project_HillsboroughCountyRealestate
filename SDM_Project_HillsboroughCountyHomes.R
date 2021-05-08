@@ -71,14 +71,14 @@ library(lme4)
 df <- read.csv("HillsboroughCountyData.csv")
 
 #2. Feature engineering
-dataset$BuildingAge =  2021 - dataset$YearBuilt
-dataset$PricePerHeatedArea = dataset$JustValue/dataset$TotalHeatedAreaSqFt
-dataset$HeatedAreaProportion = dataset$TotalHeatedAreaSqFt/(dataset$Acreage*43560)
-dataset$LastSaleDate = as.Date(dataset$LastSaleDate, format =  "%m/%d/%y" ) 
-dataset$LengthOwnershipProportion = dataset$YearsSinceTurnover/dataset$BuildingAge
+df$BuildingAge =  2021 - df$YearBuilt
+df$PricePerHeatedArea = df$JustValue/df$TotalHeatedAreaSqFt
+df$HeatedAreaProportion = df$TotalHeatedAreaSqFt/(df$Acreage*43560)
+df$LastSaleDate = as.Date(df$LastSaleDate, format =  "%m/%d/%y" ) 
+df$LengthOwnershipProportion = df$YearsSinceTurnover/df$BuildingAge
 
 #3. Group by neighborhood (unit of analysis)
-neighborhood_df = dataset %>%
+neighborhood_df = df %>%
   group_by(Neighborhood) %>%
   summarize(stories_avg = mean(TotalStories, na.rm = TRUE),
             bedrooms_avg = mean(TotalBedrooms, na.rm = TRUE),
@@ -94,21 +94,21 @@ neighborhood_df = dataset %>%
 
 #4. Checking missing values
 summary(neighborhood_df)
-summary(dataset$TotalHeatedAreaSqFt)
-dataset$TotalHeatedAreaSqFt == 0)
+summary(df$TotalHeatedAreaSqFt)
+df$TotalHeatedAreaSqFt == 0)
 
 
 # We discovered that 361 observations did not have values for TotalHeatedAreaSqFt and 1832 did not have values for Acreage and were dropped from the analysis
 # It represents 5.6823% of our dataset
 # It caused us to drop 2 neighborhoods 
-nrow(filter(dataset, Acreage == 0 | TotalHeatedAreaSqFt == 0))
-nrow(filter(dataset, Acreage == 0 | TotalHeatedAreaSqFt == 0))/38945
+nrow(filter(df, Acreage == 0 | TotalHeatedAreaSqFt == 0))
+nrow(filter(df, Acreage == 0 | TotalHeatedAreaSqFt == 0))/38945
 
 
-dataset2 = filter(dataset, TotalHeatedAreaSqFt != 0)
-dataset2 = filter(dataset2, Acreage != 0)
+df2 = filter(df, TotalHeatedAreaSqFt != 0)
+df2 = filter(df2, Acreage != 0)
 
-neighborhood_df2 = dataset2 %>%
+neighborhood_df2 = df2 %>%
   group_by(Neighborhood) %>%
   summarize(stories_avg = mean(TotalStories, na.rm = TRUE),
             bedrooms_avg = mean(TotalBedrooms, na.rm = TRUE),
