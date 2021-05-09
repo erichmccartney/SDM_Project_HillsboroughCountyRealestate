@@ -1,52 +1,4 @@
 #' SDM Project: Hillsborough County Real Estate
-# Carla
-
-df <- read.csv("HillsboroughCountyData.csv")
-str(df)
-View(df)
-
-hist(df$YearsSinceTurnover)
-hist(log(df$YearsSinceTurnover))
-  
-#DensityPlot 
-library(lattice)
-densityplot(~YearsSinceTurnover | Avg_GradePoint2019, data=df)
-
-#Linear Regression
-#Summary: 
-linearMod <- lm(YearsSinceTurnover ~ Avg_GradePoint2019 + Avg_GradePoint2018 + Avg_GradePoint2017, data=df) 
-print(linearMod)
-
-#Pooled OLS Model 
-ols <- lm(YearsSinceTurnover ~ Avg_GradePoint2019 + Avg_GradePoint2018 + Avg_GradePoint2017*LastSalePrice, data=df)
-summary(ols)
-
-
-#Fixed Effects Model 
-fe <- lm(YearsSinceTurnover ~ Avg_GradePoint2019*LastSalePrice + 
-           Avg_GradePoint2019*SchoolZipCodeGroup + as.factor(Neighborhood), 
-         data=df)
-summary(fe)
-
-library(stargazer)
-options(max.print = 60000)
-stargazer(linearMod, ols, fe, type="text", single.row=TRUE)
-
-#Test for Assumptions 
-hist(ols$res)
-ols$fit
-
-#ResidualPlot 
-plot(fe$res ~ fe$fit)  
-
-##QQPlot 
-qqnorm(fe$res)
-qqline(fe$res, col="red")
-
-#Shapiro-Wilk's Test inconclusive sample size must be between 3 and 5000 
-shapiro.test(fe$res) 
-
-#Viviana
 
 install.packages("rio")
 install.packages("moments")
@@ -59,6 +11,7 @@ rm(list=ls())
 
 library(rio)
 library(readxl)
+library(lattice)
 library(dplyr)
 library(ggplot2)
 library(corrplot)
@@ -67,20 +20,102 @@ library(openxlsx)
 library(lubridate)
 library(reshape2)
 library(stargazer)
-library(lme4) 
+library(lme4)
+library(survival)
+library(PerformanceAnalytics)
 
-
-#1.	Load the file   
+setwd("~/GitHub/SDM_Project_HillsboroughCountyRealestate")
 df <- read.csv("HillsboroughCountyData.csv")
 
-#2. Feature engineering
+str(df)
+View(df)
+
+#Feature engineering
 df$BuildingAge =  2021 - df$YearBuilt
 df$PricePerHeatedArea = df$JustValue/df$TotalHeatedAreaSqFt
 df$HeatedAreaProportion = df$TotalHeatedAreaSqFt/(df$Acreage*43560)
 df$LastSaleDate = as.Date(df$LastSaleDate, format =  "%m/%d/%y" ) 
 df$LengthOwnershipProportion = df$YearsSinceTurnover/df$BuildingAge
 
-#3. Group by neighborhood (unit of analysis)
+#' Data visualizations
+
+hist(df$YearsSinceTurnover)
+hist(log(df$YearsSinceTurnover))       # Misleading histogram: has different varieties
+
+#DensityPlot 
+densityplot(~YearsSinceTurnover | Avg_GradePoint2019, data=df)
+
+#Linear Regression
+#Summary: 
+linearMod <- lm(YearsSinceTurnover ~ Avg_GradePoint2019 + Avg_GradePoint2018 + 
+                  Avg_GradePoint2017, data=df) 
+print(linearMod)
+
+#' OLS model (pooled)
+
+ols1 <- lm(YearsSinceTurnover ~ PropertyType*Neighborhood, data=df)
+summary(ols1)
+
+ols2 <- lm(YearsSinceTurnover ~ Avg_GradePoint2019 + Avg_GradePoint2018 + 
+             Avg_GradePoint2017*LastSalePrice, data=df)
+summary(ols2)
+
+
+# Fixed Effects Model 
+fe1 <- lm(YearsSinceTurnover ~ Avg_GradePoint2019*LastSalePrice + 
+           Avg_GradePoint2019*SchoolZipCodeGroup + as.factor(Neighborhood), 
+         data=df)
+summary(fe1)
+confint(fe2)
+
+fe2 <- lm(LastSalePrice ~ PropertyType*Neighborhood + SiteCity, data=df)
+summary(fe2)
+confint(fe2)
+
+options(max.print = 60000)
+stargazer(linearMod, ols1, ols2, fe1, fe2, type="text", single.row=TRUE)
+
+# Random Effects Model
+re <- lmer(LastSalePrice ~ Neighborhood*PropertyType + (1 | SiteZip), 
+           data=df, REML=FALSE)
+summary(re)
+confint(re)
+AIC(re)
+fixef(re)                                       # Magnitude of fixed effects
+ranef(re)                                       # Magnitude of random effects
+coef(re)                                        # Magnitude of total effects
+
+ggplot(df, aes(x=LastSalePrice, y = PropertyType)) +
+  geom_bar(stat = "Identity", width = 0.10)
+ggplot(df, aes(x= LastSalePrice, y = PropertyType, fill = Neighborhood)) +
+  geom_bar(stat = "Identity")
+
+stargazer(ols1, ols2, fe1, fe2, re, type="text", single.row=TRUE)
+AIC(ols1, ols2, fe1, fe2, re)
+
+#Test for Assumptions 
+hist(ols1$res)
+ols1$fit
+
+hist(ols2$res)
+ols2$fit
+
+#ResidualPlot 
+plot(fe1$res ~ fe1$fit)
+plot(fe2$res ~ fe2$fit)  
+
+##QQPlot 
+qqnorm(fe1$res)
+qqline(fe1$res, col="red")
+
+qqnorm(fe2$res)
+qqline(fe2$res, col="red")
+
+#Shapiro-Wilk's Test inconclusive sample size must be between 3 and 5000 
+shapiro.test(fe1$res) 
+shapiro.test(fe2$res) 
+
+# Group by neighborhood (unit of analysis)
 neighborhood_df = df %>%
   group_by(Neighborhood) %>%
   summarize(stories_avg = mean(TotalStories, na.rm = TRUE),
@@ -91,11 +126,12 @@ neighborhood_df = df %>%
             heated_area_proportion_avg = mean(HeatedAreaProportion, na.rm = TRUE),
             grade_point_2019 = mean(Avg_GradePoint2019, na.rm = TRUE),
             minority_percentage = mean(Avg_Percentage.of.Minority.Students, na.rm=TRUE),
-            economically_disadvantaged_percentage = mean(Avg_Percentage.of.Economically.Disadvanteged.Students, na.rm = TRUE),
+            economically_disadvantaged_percentage = 
+              mean(Avg_Percentage.of.Economically.Disadvanteged.Students, na.rm = TRUE),
             length_of_ownership = mean(YearsSinceTurnover, na.rm=TRUE)
   )
 
-#4. Checking missing values
+# Checking missing values
 summary(neighborhood_df)
 summary(df$TotalHeatedAreaSqFt)
 df$TotalHeatedAreaSqFt == 0
@@ -128,7 +164,7 @@ neighborhood_df2 = df2 %>%
   )
 summary(neighborhood_df2)
 
-# 5. Create Visualizations
+# Create Visualizations
 attach(neighborhood_df2)
 par(mfrow=c(3,4))
 hist(stories_avg)
@@ -144,7 +180,7 @@ hist(length_of_ownership)
 hist(length_of_ownership_proportion)
 
 
-# 6. Check for extremely high correlations     
+# Check for extremely high correlations     
 par(mfrow=c(1,1))
 cor = cor(neighborhood_df2[,c(-1)])
 cor
@@ -152,10 +188,11 @@ corrplot(cor, method = "circle")
 
 # we found that the percentage of minority and economically disadvantage 
 # percentage are highly and negatively correlated to grade point, and so it will 
-#be dropped from our analysis to avoid multicollinearity
+# be dropped from our analysis to avoid multicollinearity
+
 colnames(neighborhood_df2)
 
-# 7. Statistical Analysis
+# Statistical Analysis
 
 model1 = lm(length_of_ownership~stories_avg + bedrooms_avg + bathrooms_avg 
             + price_avg + heated_area_proportion_avg + grade_point_2019 
@@ -212,7 +249,7 @@ abline(0,0,col="red",lwd=3)
 lev=hat(model.matrix(model1))
 plot(lev,pch=19,ylim=c(0,.5), main="High leverage points")
 abline(3*mean(lev),0,col="red",lwd=3)
-neighborhood_df2[lev>(3*mean(lev)),]  ##identifying which data points are 3 times higher than the mean laverage
+neighborhood_df2[lev>(3*mean(lev)),]  ##identifying which data points are 3 times higher than the mean leverage
 neighborhood_df2[lev>(3*mean(lev)),1]
 outliers = which(lev>(3*mean(lev)),1)
 
@@ -240,58 +277,5 @@ plot(df_no_outliers$length_of_ownership,rstandard(model6),
      pch=19,main="Model 6 Residual Plot")
 abline(0,0,col="red",lwd=3)
 
-#Glor
-#' SDM Project: Hillsborough County Real Estate
 
-library(readxl)
-library(lattice)
-library(survival)
-library(stargazer)
-library(dplyr)
-library(ggplot2)
-library(lme4)
-library(PerformanceAnalytics)
-setwd("~/GitHub/R/DataSets")
-df <- read.csv("HillsboroughCountyData.csv")
-df$PropertyType= as.factor(df$PropertyType)
-df$SiteCity= as.factor(df$SiteCity)
-df$Homestead= as.factor(df$Homestead)
-df$Neighborhood= as.factor(df$Neighborhood)
-df$LastSaleDate= as.factor(df$LastSaleDate)
-
-
-#' Data visualizations (Log)
-
-hist(df$YearsSinceTurnover)
-hist(log(df$YearsSinceTurnover))       # Misleading histogram: has different varieties
-
-
-#' OLS model (pooled)
-
-ols <- lm(YearsSinceTurnover ~ PropertyType*Neighborhood, data=df)
-summary(ols)
-
-#' Questions: What inference do you make from the OLS analysis?
-
-
-fe <- lm(LastSalePrice ~ PropertyType*Neighborhood + SiteCity, data=df)
-summary(fe)
-confint(fe)
-
-library(lme4) 
-re <- lmer(LastSalePrice ~ Neighborhood*PropertyType + (1 | SiteZip), data=df, REML=FALSE)
-summary(re)
-confint(re)
-AIC(re)
-fixef(re)                                       # Magnitude of fixed effects
-ranef(re)                                       # Magnitude of random effects
-coef(re)                                        # Magnitude of total effects
-
-ggplot(df, aes(x=LastSalePrice,y = PropertyType))+
-  geom_bar(stat = "Identity", width = 0.10)
-ggplot(BMS, aes(x= LastSalePrice, y = PropertyType, fill = Neighborhood ))+
-  geom_bar(stat = "Identity")
-
-library(stargazer)
-stargazer(ols, fe, re, type="text", single.row=TRUE)
-AIC(ols, fe, re)
+stargazer(model1, model2, model3, model4, model5, model6, type="text")
