@@ -239,3 +239,59 @@ par(mar=c(5.1,4.1,4.1,2.1))
 plot(df_no_outliers$length_of_ownership,rstandard(model6),
      pch=19,main="Model 6 Residual Plot")
 abline(0,0,col="red",lwd=3)
+
+#Glor
+#' SDM Project: Hillsborough County Real Estate
+
+library(readxl)
+library(lattice)
+library(survival)
+library(stargazer)
+library(dplyr)
+library(ggplot2)
+library(lme4)
+library(PerformanceAnalytics)
+setwd("~/GitHub/R/DataSets")
+df <- read.csv("HillsboroughCountyData.csv")
+df$PropertyType= as.factor(df$PropertyType)
+df$SiteCity= as.factor(df$SiteCity)
+df$Homestead= as.factor(df$Homestead)
+df$Neighborhood= as.factor(df$Neighborhood)
+df$LastSaleDate= as.factor(df$LastSaleDate)
+
+
+#' Data visualizations (Log)
+
+hist(df$YearsSinceTurnover)
+hist(log(df$YearsSinceTurnover))       # Misleading histogram: has different varieties
+
+
+#' OLS model (pooled)
+
+ols <- lm(YearsSinceTurnover ~ PropertyType*Neighborhood, data=df)
+summary(ols)
+
+#' Questions: What inference do you make from the OLS analysis?
+
+
+fe <- lm(LastSalePrice ~ PropertyType*Neighborhood + SiteCity, data=df)
+summary(fe)
+confint(fe)
+
+library(lme4) 
+re <- lmer(LastSalePrice ~ Neighborhood*PropertyType + (1 | SiteZip), data=df, REML=FALSE)
+summary(re)
+confint(re)
+AIC(re)
+fixef(re)                                       # Magnitude of fixed effects
+ranef(re)                                       # Magnitude of random effects
+coef(re)                                        # Magnitude of total effects
+
+ggplot(df, aes(x=LastSalePrice,y = PropertyType))+
+  geom_bar(stat = "Identity", width = 0.10)
+ggplot(BMS, aes(x= LastSalePrice, y = PropertyType, fill = Neighborhood ))+
+  geom_bar(stat = "Identity")
+
+library(stargazer)
+stargazer(ols, fe, re, type="text", single.row=TRUE)
+AIC(ols, fe, re)
