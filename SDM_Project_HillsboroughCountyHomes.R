@@ -14,12 +14,13 @@ densityplot(~YearsSinceTurnover | Avg_GradePoint2019, data=df)
 
 #Linear Regression
 #Summary: 
-linearMod <- lm(YearsSinceTurnover ~ Avg_GradePoint2019, data=df) 
+linearMod <- lm(YearsSinceTurnover ~ Avg_GradePoint2019 + Avg_GradePoint2018 + Avg_GradePoint2017, data=df) 
 print(linearMod)
 
 #Pooled OLS Model 
-ols <- lm(YearsSinceTurnover ~ Avg_GradePoint2019*LastSalePrice, data=df)
+ols <- lm(YearsSinceTurnover ~ Avg_GradePoint2019 + Avg_GradePoint2018 + Avg_GradePoint2017*LastSalePrice, data=df)
 summary(ols)
+
 
 #Fixed Effects Model 
 fe <- lm(YearsSinceTurnover ~ Avg_GradePoint2019*LastSalePrice + 
