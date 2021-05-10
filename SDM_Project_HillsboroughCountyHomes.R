@@ -63,8 +63,8 @@ summary(ols2)
 
 # Fixed Effects Model 
 fe1 <- lm(YearsSinceTurnover ~ Avg_GradePoint2019*LastSalePrice + 
-           Avg_GradePoint2019*SchoolZipCodeGroup + as.factor(Neighborhood), 
-         data=df)
+            Avg_GradePoint2019*SchoolZipCodeGroup + as.factor(Neighborhood), 
+          data=df)
 summary(fe1)
 confint(fe2)
 
@@ -104,7 +104,7 @@ ols2$fit
 plot(fe1$res ~ fe1$fit)
 plot(fe2$res ~ fe2$fit)  
 
-##QQPlot 
+#QQPlot 
 qqnorm(fe1$res)
 qqline(fe1$res, col="red")
 
@@ -261,7 +261,6 @@ model5 = lm(length_of_ownership~stories_avg + bedrooms_avg + bathrooms_avg
 
 summary(model5)
 
-
 par(mar=c(5.1,4.1,4.1,2.1))
 plot(df_no_outliers$length_of_ownership,rstandard(model5),
      pch=19,main="Model 5 Residual Plot")
@@ -276,6 +275,5 @@ par(mar=c(5.1,4.1,4.1,2.1))
 plot(df_no_outliers$length_of_ownership,rstandard(model6),
      pch=19,main="Model 6 Residual Plot")
 abline(0,0,col="red",lwd=3)
-
 
 stargazer(model1, model2, model3, model4, model5, model6, type="text")
