@@ -277,3 +277,6 @@ plot(df_no_outliers$length_of_ownership,rstandard(model6),
 abline(0,0,col="red",lwd=3)
 
 stargazer(model1, model2, model3, model4, model5, model6, type="text")
+
+stargazer(ols2, model1, model2, type="text")
+
